@@ -15,4 +15,6 @@ Usei meus frameworks favoritos na criação dos componentes. Você pode substitu
 
 `@ngx-bootstrap@5.1.1`
 
+`@mdi/font@3.7.95`
+
 [Meu site](https://jmarcossouza.com)
