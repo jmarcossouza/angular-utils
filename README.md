@@ -1,27 +1,18 @@
 # AngularUtils
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.1.
+Projeto criado para salvar componentes, métodos, classes, etc...que podem ser implementados em outros projetos, afim de reduzir e centralizar o código do projeto.
 
-## Development server
+Todos os componentes, pipes, classes da pasta `src/app/utils` foram criados por mim e estão documentadas e exemplificadas em alguma das páginas dentro de `src/app/pages/`. Cada componente deve ter seu próprio módulo e um `README.md` explicando sua função (a menos que o nome seja autoexplicativo).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Você deve ser capaz de alterar os componentes como quiser, já que a grande maioria dos métodos estarão documentados explicando suas funções.
 
-## Code scaffolding
+## Dependências e versões
+Usei meus frameworks favoritos na criação dos componentes. Você pode substituí-los, mas terá de fazer algumas poucas alterações (o objetivo é de que seja as menores possíveis) no HTML.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+`@angular/cli@8.1.1` (Obs: Usando Ivy)
 
-## Build
+`@bootstrap@4.3.x`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+`@ngx-bootstrap@5.1.1`
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+[Meu site](https://jmarcossouza.com)
