@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
+import { PipesModule } from './pipes/pipes.module';
 
 
 
@@ -8,6 +8,10 @@ import { SharedModule } from '../shared/shared.module';
     declarations: [],
     imports: [
         SharedModule,
+        PipesModule
+    ],
+    exports: [
+        PipesModule
     ]
 })
 export class UtilsModule { }
