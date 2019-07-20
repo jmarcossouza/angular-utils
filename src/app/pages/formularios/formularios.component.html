@@ -4,9 +4,23 @@
             <input type="text" class="form-control" formControlName="nome" placeholder="Nome">
         </uts-input-text-container>
 
-        <uts-input-text-container label="Email" class="col-lg" [fControl]="form1.controls.email" [shouldApplyValidClass]="true">
+        <uts-input-text-container label="Email" class="col-lg" [fControl]="form1.controls.email"
+            [shouldApplyValidClass]="true">
             <input type="text" class="form-control" formControlName="email" placeholder="Email">
         </uts-input-text-container>
+    </div>
+
+    <div class="form-row">
+        <uts-radio-container [fControl]="form1.controls.sexo" label="Sexo" class="col-lg" [shouldApplyValidClass]="true">
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="sexoM" formControlName="sexo" value="M" class="custom-control-input">
+                <label class="custom-control-label" for="sexoM">Masculino</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" id="sexoF" formControlName="sexo" value="F" class="custom-control-input">
+                <label class="custom-control-label" for="sexoF">Feminino</label>
+            </div>
+        </uts-radio-container>
     </div>
 
     <button class="btn btn-primary" (click)="value = form1.getRawValue()">Valor Form</button>

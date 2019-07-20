@@ -1,0 +1,7 @@
+<div class="form-group">
+    <label *ngIf="label">{{label}} <uts-required-indicator *ngIf="isRequired"></uts-required-indicator></label><br>
+    <div class="custom-control-inline" #inputParent>
+        <ng-content></ng-content>
+    </div>
+    <uts-input-feedback [fControl]="formControl" [showWhenInvalid]="shouldApplyInvalidClass" [showWhenValid]="shouldApplyValidClass"></uts-input-feedback>
+</div>
