@@ -18,4 +18,8 @@ export class CheckboxContainerComponent extends InputContainerBase {
     constructor(renderer: Renderer2) {
         super(renderer)
     }
+
+    public get inputChildren(): any[] {
+        return super.findBetweenChildElements("input", this.inputParent.nativeElement.children);
+    }
 }

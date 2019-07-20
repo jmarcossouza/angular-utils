@@ -12,12 +12,15 @@ export class RadioContainerComponent extends InputContainerBase {
         super(renderer);
     }
 
+    /**
+     * @description Cada <div> em que se encontra o input radio e o label dele.
+     */
+    private get divRadioArray(): any[] {
+        return this.inputParent.nativeElement.children;
+    }
+
     ngAfterViewInit() {
         super.ngAfterViewInit();
-
-        /**
-         * Futuramente descobrir um jeito de colocar os atributos id e for pra cada input e label automaticamente.
-         */
     }
 
     /**
@@ -26,9 +29,9 @@ export class RadioContainerComponent extends InputContainerBase {
     public get inputChildren(): any[] {
         var inputsArray: any[] = [];
 
-        for (let index = 0; index < this.inputParent.nativeElement.children.length; index++) {
+        for (let index = 0; index < this.divRadioArray.length; index++) {
             //Salvar os elementos encontrados nessa constante.
-            const elementosEncontrados: any[] = super.findBetweenChildElements("input", this.inputParent.nativeElement.children[index].children);
+            const elementosEncontrados: any[] = super.findBetweenChildElements("input", this.divRadioArray[index].children);
 
             //Pra cada elemento encontrado, vou jogar no array lá de cima. Depois pensar numa maneira de melhorar esse código sem esse for.
             for (let index = 0; index < elementosEncontrados.length; index++) {
@@ -37,5 +40,4 @@ export class RadioContainerComponent extends InputContainerBase {
         }
         return inputsArray;
     }
-
 }

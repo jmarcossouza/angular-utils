@@ -14,18 +14,18 @@
         <uts-radio-container [fControl]="form1.controls.sexo" label="Sexo" class="col-lg"
             [shouldApplyValidClass]="true">
             <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="sexoM" formControlName="sexo" value="M" class="custom-control-input">
-                <label class="custom-control-label" for="sexoM">Masculino</label>
+                <input type="radio" formControlName="sexo" value="M" class="custom-control-input">
+                <label class="custom-control-label">Masculino</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="sexoF" formControlName="sexo" value="F" class="custom-control-input">
-                <label class="custom-control-label" for="sexoF">Feminino</label>
+                <input type="radio" formControlName="sexo" value="F" class="custom-control-input">
+                <label class="custom-control-label">Feminino</label>
             </div>
         </uts-radio-container>
 
         <uts-checkbox-container [fControl]="form1.controls.concordaTermos" class="col-lg" [shouldApplyValidClass]="true">
-            <input type="checkbox" formControlName="concordaTermos" class="custom-control-input" id="concordaTermos">
-            <label class="custom-control-label" for="concordaTermos">Concordo com os termos de uso</label>
+            <input type="checkbox" formControlName="concordaTermos" class="custom-control-input">
+            <label class="custom-control-label" >Concordo com os termos de uso</label>
         </uts-checkbox-container>
     </div>
 

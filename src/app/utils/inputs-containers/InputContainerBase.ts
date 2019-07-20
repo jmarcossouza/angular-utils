@@ -5,6 +5,28 @@ import { Subscription } from 'rxjs';
 export class InputContainerBase implements OnDestroy, AfterViewInit {
 
     /**
+     * @description Contador de "instancias". Seu valor SOMENTE deve ser INCREMENTADO.
+     */
+    private static instanceCounter: number = 0;
+
+    /**
+     * @description Incrementa e depois retorna o instanceCounter toda vez que chamado. É um método get.
+     * @description Um bom uso disso aqui é pra aplicar os atributos "for" e "id" dos <label> e <input>. 
+     * Já que toda vez que chamado, irá incrementar antes, assim impedindo a repetição.
+     */
+    public static get instanceCount(): number {
+        return ++InputContainerBase.instanceCounter;
+    }
+
+    /**
+     * @description Decide se deve ou não, através do método applyLabelIdentifierFromInput(), REMOVER e aplicar novos atributos id e for para os inputs e labels.
+     * Se TRUE vai aplicar, se FALSE não irá mexer nos ids nem for.
+     * @description Se você usa o seletor javascript (id) pra alguma outra coisa, deve setar isso como false.
+     * @default true
+     */
+    @Input() autoSetId: boolean = true;
+
+    /**
      * @description String com classes a serem aplicadas à <div> principal (que contém a classe "form-group")
      * @default undefined
      */
@@ -38,7 +60,7 @@ export class InputContainerBase implements OnDestroy, AfterViewInit {
      * @default false
      */
     @Input() shouldApplyValidClass: boolean = false;
-    @ViewChild('inputParent', {static: false}) inputParent: ElementRef;
+    @ViewChild('inputParent', { static: false }) inputParent: ElementRef;
 
     protected renderer: Renderer2
     /**
@@ -51,16 +73,12 @@ export class InputContainerBase implements OnDestroy, AfterViewInit {
         this.renderer = renderer;
     }
 
-    // ngOnInit() {
-    //     if (this.shouldApplyInvalidClass || this.shouldApplyValidClass) {
-    //         this.subscriptionsInput();
-    //     }
-    // }
-
     ngAfterViewInit(): void {
         if (this.shouldApplyInvalidClass || this.shouldApplyValidClass) {
             this.subscriptionsInput();
         }
+
+        this.applyLabelIdentifierFromInput();
     }
 
     ngOnDestroy() {
@@ -71,7 +89,7 @@ export class InputContainerBase implements OnDestroy, AfterViewInit {
      * É um método get que pega os filhos (inputs) da div.
      * É importante que seja um get para que sempre esteja atualiazdo.
      */
-    protected get inputChildren(): ElementRef[] {
+    protected get inputChildren(): any[] {
         return this.inputParent.nativeElement.children;
     }
 
@@ -151,12 +169,46 @@ export class InputContainerBase implements OnDestroy, AfterViewInit {
         const foundElements = [];
         for (let index = 0; index < arrayElements.length; index++) {
             const element = arrayElements[index];
-            
+
             if (element.tagName == tagName.toUpperCase()) {
                 foundElements.push(element);
             }
         }
         return foundElements;
+    }
+
+    /**
+     * @description Remove os atributos "id" e "for" do <input> e <label> e substitui por novos. Ambos iguais. Utiliza o contador instanceCount, portanto nunca irá se repetir dentro do projeto.
+     * @param inputElement Input em que será aplicado o id
+     * @param labelElement Label em que será aplicado o for
+     */
+    protected applyLabelIdentifier(inputElement: any, labelElement): void {
+        if (inputElement && labelElement) {
+            this.renderer.removeAttribute(inputElement, "id");
+            this.renderer.removeAttribute(labelElement, "for");
+
+            const identifier = `utsInput${InputContainerBase.instanceCount.toString()}`;
+
+            this.renderer.setAttribute(inputElement, "id", identifier);
+            this.renderer.setAttribute(labelElement, "for", identifier);
+        }
+    }
+
+    /**
+     * @description Método que varre os inputs e sai aplicando os atributos "for" e "id" pra cada um deles.
+     * IMPORTANTE: Pra usar esse método, os <label> devem estar sempre juntos ao <input> (compartilhando o mesmo pai)
+     */
+    public applyLabelIdentifierFromInput(): void {
+        if (this.autoSetId === true) {
+            for (let index = 0; index < this.inputChildren.length; index++) {
+                const input = this.inputChildren[index];
+                const label = this.findBetweenChildElements("label", input.parentElement.children)[0];
+
+                if (input && label) {
+                    this.applyLabelIdentifier(input, label);
+                }
+            }
+        }
     }
 
 }
