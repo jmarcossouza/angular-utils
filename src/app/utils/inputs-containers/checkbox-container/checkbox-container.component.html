@@ -1,0 +1,9 @@
+<div class="form-group">
+    <label *ngIf="emptyLabel"> &nbsp;</label>
+
+    <div class="custom-control custom-checkbox" #inputParent>
+        <ng-content></ng-content>
+    </div>
+    <uts-input-feedback [fControl]="formControl" [showWhenInvalid]="shouldApplyInvalidClass"
+        [showWhenValid]="shouldApplyValidClass"></uts-input-feedback>
+</div>
