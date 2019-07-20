@@ -1,14 +1,12 @@
 <div class="container m-t-100" [formGroup]="form1">
     <div class="form-row">
-        <div class="col-lg form-group">
-            <label>Nome</label>
+        <uts-input-text-container label="Nome" class="col-lg" [fControl]="form1.controls.nome">
             <input type="text" class="form-control" formControlName="nome" placeholder="Nome">
-        </div>
+        </uts-input-text-container>
 
-        <div class="col-lg form-group">
-            <label>Email</label>
-            <input type="text" class="form-control" formControlName="email" placeholder="Email">>
-        </div>
+        <uts-input-text-container label="Email" class="col-lg" [fControl]="form1.controls.email">
+            <input type="text" class="form-control" formControlName="email" placeholder="Email">
+        </uts-input-text-container>
     </div>
 
     <button class="btn btn-primary" (click)="value = form1.getRawValue()">Valor Form</button>

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 import { PipesModule } from './pipes/pipes.module';
+import { InputsContainersModule } from './inputs-containers/inputs-containers.module';
 
 
 
@@ -8,10 +9,13 @@ import { PipesModule } from './pipes/pipes.module';
     declarations: [],
     imports: [
         SharedModule,
-        PipesModule
+        PipesModule,
+        InputsContainersModule
     ],
     exports: [
-        PipesModule
+        PipesModule,
+        InputsContainersModule,
+        InputsContainersModule
     ]
 })
 export class UtilsModule { }
