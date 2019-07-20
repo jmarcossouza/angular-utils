@@ -1,0 +1,3 @@
+<div *ngIf="errorFeedbackMessage" [ngClass]="{'invalid-feedback': fControl.invalid, 'valid-feedback': fControl.valid}" style="display: block">
+    {{errorFeedbackMessage}}
+</div>

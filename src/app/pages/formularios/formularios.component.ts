@@ -20,7 +20,7 @@ export class FormulariosComponent implements OnInit {
     private createForms(): void {
         this.form1 = new FormGroup({
             nome: new FormControl(null, [Validators.required, Validators.maxLength(60)]),
-            email: new FormControl(null, [Validators.maxLength(100)]),
+            email: new FormControl(null, [Validators.maxLength(100), Validators.email]),
         });
     }
 
