@@ -8,12 +8,14 @@ import { HomeComponent } from './pages/home/home.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { UtilsModule } from './utils/utils.module';
 import { SharedModule } from './shared/shared.module';
+import { FormulariosComponent } from './pages/formularios/formularios.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         MenuComponent,
         HomeComponent,
+        FormulariosComponent,
     ],
     imports: [
         BrowserModule,

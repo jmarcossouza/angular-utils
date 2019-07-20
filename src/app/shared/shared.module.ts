@@ -1,6 +1,6 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +11,8 @@ import { CommonModule } from '@angular/common';
         CommonModule
     ],
     exports: [
-        CommonModule
+        CommonModule,
+        ReactiveFormsModule
 
     ]
 })

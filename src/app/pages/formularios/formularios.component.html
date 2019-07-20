@@ -1,0 +1,19 @@
+<div class="container m-t-100" [formGroup]="form1">
+    <div class="form-row">
+        <div class="col-lg form-group">
+            <label>Nome</label>
+            <input type="text" class="form-control" formControlName="nome" placeholder="Nome">
+        </div>
+
+        <div class="col-lg form-group">
+            <label>Email</label>
+            <input type="text" class="form-control" formControlName="email" placeholder="Email">>
+        </div>
+    </div>
+
+    <button class="btn btn-primary" (click)="value = form1.getRawValue()">Valor Form</button>
+</div>
+
+<div class="bg-light border rounded m-t-40" *ngIf="value">
+    <pre>{{value | json}}</pre>
+</div>
