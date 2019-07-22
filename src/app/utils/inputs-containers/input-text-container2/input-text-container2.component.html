@@ -1,0 +1,9 @@
+<div class="form-group row">
+    <label class="col-form-label" [ngClass]="labelClass">{{label}} <uts-required-indicator *ngIf="isRequired">
+        </uts-required-indicator></label>
+    <div #inputParent [ngClass]="inputClass">
+        <ng-content></ng-content>
+        <uts-input-feedback [fControl]="formControl" [showWhenInvalid]="shouldApplyInvalidClass"
+            [showWhenValid]="shouldApplyValidClass" [validFeedbackMessage]="validFeedbackMessage"></uts-input-feedback>
+    </div>
+</div>

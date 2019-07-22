@@ -29,6 +29,15 @@
         </uts-checkbox-container>
     </div>
 
+    <uts-input-text-container2 [fControl]="form1.controls.nome" label="Senha">
+        <input type="text" class="form-control" formControlName="nome" placeholder="Nome">
+    </uts-input-text-container2>
+    <uts-input-text-container2 [fControl]="form1.controls.nome" label="Repita a senha">
+        <input type="text" class="form-control" formControlName="nome" placeholder="Nome">
+    </uts-input-text-container2>
+    <uts-input-text-container2 [fControl]="form1.controls.nome" label="Nome">
+        <input type="text" class="form-control" formControlName="nome" placeholder="Nome">
+    </uts-input-text-container2>
     <button class="btn btn-primary" (click)="value = form1.getRawValue()">Valor Form</button>
 </div>
 
