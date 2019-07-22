@@ -20,6 +20,8 @@ export class InputFeedbackComponent {
      */
     @Input() showWhenValid: boolean = false;
 
+    @Input() validFeedbackMessage: string = "Ok.";
+
     /**
      * @description Método que apresenta as mensagens de erro. Ele é baseado nos booleanos showWhenValid e showWhenInvalid.
      * Ou seja, só irá retornar as mensagens de erro se eles estiverem true. Não vou entrar em muito detalhes, porque é um método fácil de entender e mudar suas propriedades.
@@ -50,7 +52,7 @@ export class InputFeedbackComponent {
                 }
             } else if (this.fControl.valid && this.showWhenValid) {
                 //Mensagem de campo válido.
-                return `Ok.`;
+                return `${this.validFeedbackMessage}`;
             }
         }
 

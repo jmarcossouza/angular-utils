@@ -60,6 +60,11 @@ export class InputContainerBase implements OnDestroy, AfterViewInit {
      * @default false
      */
     @Input() shouldApplyValidClass: boolean = false;
+    /**
+     * @description Mensagem de feedback quando VÁLIDO. (Só aparece se o shouldApplyValidClass for true).
+     * @default "Ok."
+     */
+    @Input() validFeedbackMessage: string = "Ok.";
     @ViewChild('inputParent', { static: false }) inputParent: ElementRef;
 
     protected renderer: Renderer2
