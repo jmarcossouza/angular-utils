@@ -7,8 +7,6 @@ import { RadioContainerComponent } from './radio-container/radio-container.compo
 import { CheckboxContainerComponent } from './checkbox-container/checkbox-container.component';
 import { InputTextContainer2Component } from './input-text-container2/input-text-container2.component';
 
-
-
 @NgModule({
     declarations: [InputTextContainerComponent, InputFeedbackComponent, RequiredIndicatorComponent, RadioContainerComponent, CheckboxContainerComponent, InputTextContainer2Component],
     imports: [

@@ -155,11 +155,20 @@ export class InputContainerBase implements OnDestroy, AfterViewInit {
         }
     }
 
+    /**
+     * @description Retorna se no formControl há o Validator required do angular ``Validators.required``
+     */
     public get isRequired(): boolean {
-        var _validator: any = this.formControl.validator({} as AbstractControl) //Se existir o required vai retornar um objeto { required: true }
-        return (_validator && _validator.required) ? true : false;
+        if (this.formControl.validator) { //Verificar se há algum validator antes
+            var _validator: any = this.formControl.validator({} as AbstractControl) //Se existir o required vai retornar um objeto { required: true }
+            return (_validator && _validator.required) ? true : false;
+        }
+        return false;
     }
 
+    /**
+     * @description Método get que retorna o FormControl injetado pelo componente no ``<ng-content></ng-content>``
+     */
     public get formControl(): FormControl | AbstractControl {
         return this.fControl;
     }
