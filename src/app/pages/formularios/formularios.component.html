@@ -23,15 +23,24 @@
             </div>
         </uts-radio-container>
 
-        <uts-checkbox-container [fControl]="form1.controls.concordaTermos" class="col-lg" [shouldApplyValidClass]="true" validFeedbackMessage="Obrigado, agora podemos te espionar e vender seus dados legalmente.">
+        <uts-checkbox-container [fControl]="form1.controls.concordaTermos" class="col-lg" [shouldApplyValidClass]="true"
+            validFeedbackMessage="Obrigado, agora podemos te espionar e vender seus dados legalmente.">
             <input type="checkbox" formControlName="concordaTermos" class="custom-control-input">
-            <label class="custom-control-label" >Concordo com os termos de uso</label>
+            <label class="custom-control-label">Concordo com os termos de uso</label>
         </uts-checkbox-container>
     </div>
 
     <uts-input-text-container2 [fControl]="form1.controls.nome" label="Nome">
         <input type="text" class="form-control" formControlName="nome" placeholder="Nome">
     </uts-input-text-container2>
+
+    <uts-input-text-container [fControl]="form1.controls.nome" inputParentClass="input-group">
+        <div class="input-group-prepend">
+            <div class="input-group-text">Email</div>
+        </div>
+        <input type="text" class="form-control" formControlName="email" placeholder="Email">
+    </uts-input-text-container>
+    
     <button class="btn btn-primary" (click)="value = form1.getRawValue()">Valor Form</button>
 </div>
 
