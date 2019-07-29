@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalsUtils } from 'src/app/utils/modals/ModalsUtils';
 
 @Component({
     selector: 'uts-home',
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit {
     }
 
     openModal() {
-        
+        ModalsUtils.confirmationModalComponent.openModal();
     }
 
 }
