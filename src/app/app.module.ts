@@ -10,6 +10,8 @@ import { UtilsModule } from './utils/utils.module';
 import { SharedModule } from './shared/shared.module';
 import { FormulariosComponent } from './pages/formularios/formularios.component';
 
+import { ModalsModule } from './utils/modals/modals.module';
+import { ModalModule } from 'ngx-bootstrap/modal';
 @NgModule({
     declarations: [
         AppComponent,
@@ -22,6 +24,8 @@ import { FormulariosComponent } from './pages/formularios/formularios.component'
         AppRoutingModule,
         SharedModule,
         UtilsModule,
+        ModalModule.forRoot(),
+        ModalsModule
     ],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },

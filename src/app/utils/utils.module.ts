@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 import { PipesModule } from './pipes/pipes.module';
 import { InputsContainersModule } from './inputs-containers/inputs-containers.module';
+import { ModalsModule } from './modals/modals.module';
 
 
 
@@ -10,12 +11,13 @@ import { InputsContainersModule } from './inputs-containers/inputs-containers.mo
     imports: [
         SharedModule,
         PipesModule,
-        InputsContainersModule
+        InputsContainersModule,
     ],
     exports: [
         PipesModule,
         InputsContainersModule,
-        InputsContainersModule
+        InputsContainersModule,
+        ModalsModule
     ]
 })
 export class UtilsModule { }
