@@ -14,7 +14,9 @@ export class HomeComponent implements OnInit {
     }
 
     openModal() {
-        ModalsUtils.confirmationModalComponent.openModal();
+        ModalsUtils.confirmationModalComponent.openModal().subscribe(result => {
+            console.log("resultado: ", result);
+        });
     }
 
 }
