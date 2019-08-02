@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-md modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
-                <p>{{modalMessage}}</p>
+                <p style="white-space: pre-wrap">{{modalMessage}}</p>
                 <div class="text-right m-t-20">
                     <button type="button" class="btn btn-sm m-r-5" (click)="confirm()" [ngClass]="classBtnConfirmColor">{{modalBtnConfirmMessage}}</button>
                     <button type="button" class="btn btn-sm btn-outline-default" (click)="modalDirective.hide()">Cancelar</button>

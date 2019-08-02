@@ -1,5 +1,5 @@
-import { Component, ViewChild, AfterViewInit, TemplateRef, ChangeDetectorRef, Output, EventEmitter, OnDestroy } from '@angular/core';
-import { BsModalService, BsModalRef, ModalDirective } from 'ngx-bootstrap/modal';
+import { Component, ViewChild, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { ModalDirective } from 'ngx-bootstrap/modal';
 import { ModalsUtils } from '../ModalsUtils';
 import { Observable, Subscription } from 'rxjs';
 
@@ -75,7 +75,7 @@ export class ConfirmationModalComponent implements OnDestroy {
 
     /**
      * @description Método que abre o modal de confirmação e fica esperando uma ação do usuário.
-     * @param modalMessage Mensagem que deverá aparecer no modal. Default: `"Confirmar essa ação?"`
+     * @param modalMessage Mensagem que deverá aparecer no modal. Default: `"Confirmar essa ação?"`. Você pode adicioanr quebra de linha na string, basta usar `\n`
      * @param modalBtnConfirmMessage Mensagem do botão de confirmar. Default: `"Confirmar"`
      * @param modalBtnConfirmColor Cor do botão de confirmar. Default: `"primary"`
      * @returns `Observable<boolean>` dependendo da interação do usuário com o modal. True é retornado somente se ele clicar no botão de confirmarm, qualquer outra ação retornará false.

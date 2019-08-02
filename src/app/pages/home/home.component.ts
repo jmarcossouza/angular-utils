@@ -10,14 +10,17 @@ export class HomeComponent implements OnInit {
 
     constructor() { }
 
+    modalResposta: boolean;
+
     ngOnInit() {
     }
 
-    openModal() {
-        ModalsUtils.messageModalComponent.openModal("Mensagem de teste.")
-        // ModalsUtils.confirmationModalComponent.openModal().subscribe(result => {
-        //     console.log("resultado: ", result);
-        // });
+    modalConfirmation() {
+        ModalsUtils.confirmationModalComponent.openModal("Deseja confirmar esta ação?").subscribe(resposta => this.modalResposta = resposta);
+    }
+
+    modalMessage() {
+        ModalsUtils.messageModalComponent.openModal("Mensagem de aviso.\n\n Mais detalhes da mensagem.");
     }
 
 }
