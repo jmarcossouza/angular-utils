@@ -1,0 +1,12 @@
+<div class="modal fade" bsModal #modal="bs-modal">
+    <div class="modal-dialog modal-md modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <p style="white-space: pre-wrap">{{modalMessage}}</p>
+                <div class="text-right m-t-20">
+                    <button type="button" class="btn btn-sm btn-outline-primary" (click)="modalDirective.hide();">{{modalBtnMessage}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
