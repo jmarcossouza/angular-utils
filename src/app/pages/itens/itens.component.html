@@ -1,0 +1,7 @@
+<div class="container m-t-50">
+    <uts-loading-on-demand [dataUrl]="urlItens" (data)="handleItens($event)">
+
+        <div *ngFor="let item of itens">{{item.raca}}</div>
+
+    </uts-loading-on-demand>
+</div>

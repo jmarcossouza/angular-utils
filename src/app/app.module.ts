@@ -12,12 +12,15 @@ import { FormulariosComponent } from './pages/formularios/formularios.component'
 
 import { ModalsModule } from './utils/modals/modals.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { ItensComponent } from './pages/itens/itens.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
     declarations: [
         AppComponent,
         MenuComponent,
         HomeComponent,
         FormulariosComponent,
+        ItensComponent,
     ],
     imports: [
         BrowserModule,
@@ -25,7 +28,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
         SharedModule,
         UtilsModule,
         ModalModule.forRoot(),
-        ModalsModule
+        ModalsModule,
+        HttpClientModule
     ],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },

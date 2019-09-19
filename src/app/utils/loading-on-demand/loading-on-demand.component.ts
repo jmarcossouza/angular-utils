@@ -10,10 +10,10 @@ import { HttpClient } from '@angular/common/http';
 export class LoadingOnDemandComponent implements OnInit {
 
     private page: number = 1;
-    private itensPerPage: number = 10;
+    private itensPerPage: number = 3;
 
-    private dataResult: Pagination<any>;
-    @Output() data: EventEmitter<any> = new EventEmitter<any>();
+    public dataResult: Pagination<any>;
+    @Output() data: EventEmitter<any[]> = new EventEmitter<any[]>();
     /**
      * Enviar uma string com `{{{page}}}` e/ou `{{{itensPerPage}}}`. Será ai que eu irei substituir pelos números da página.
      */
@@ -26,7 +26,7 @@ export class LoadingOnDemandComponent implements OnInit {
     }
 
     public get canLoadMoreData(): boolean {
-        if (this.page < this.dataResult.last_page) {
+        if ((this.dataResult && this.page < this.dataResult.last_page) || this.dataResult == undefined) {
             return true;
         } else {
             return false;
@@ -45,6 +45,6 @@ export class LoadingOnDemandComponent implements OnInit {
             this.page++;
         }
         this.dataResult = result;
-        this.data.emit(this.dataResult);
+        this.data.emit(this.dataResult.data);
     }
 }
