@@ -10,11 +10,11 @@ export class ItensComponent implements OnInit {
 
     constructor() { }
 
-    public urlItens: string = "http://api.bomamigo.com:8080/pets_encontrados?page={{{page}}}&per_page={{{itensPerPage}}}";
+    public urlItens: string = "http://localhost/rota?page={{{page}}}&per_page={{{itensPerPage}}}";
     public itens: any[] = [];
 
     public handleItens(result: Pagination<any>) {
-        this.itens.concat(result);
+        this.itens = this.itens.concat(result);
         console.log(result, this.itens)
     }
 

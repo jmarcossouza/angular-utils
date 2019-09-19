@@ -13,6 +13,7 @@ export class LoadingOnDemandComponent implements OnInit {
     private itensPerPage: number = 3;
 
     public dataResult: Pagination<any>;
+    public loading: boolean;
     @Output() data: EventEmitter<any[]> = new EventEmitter<any[]>();
     /**
      * Enviar uma string com `{{{page}}}` e/ou `{{{itensPerPage}}}`. Será ai que eu irei substituir pelos números da página.
@@ -35,8 +36,12 @@ export class LoadingOnDemandComponent implements OnInit {
 
     public loadData(): void {
         if (this.canLoadMoreData == true) {
+            this.loading = true;
             let dataUrl = this.dataUrl.replace("{{{page}}}", this.page.toString()).replace("{{{itensPerPage}}}", this.itensPerPage.toString());
-            this.httpClient.get<Pagination<any>>(dataUrl).subscribe((result) => this.handlePagination(result));
+            this.httpClient.get<Pagination<any>>(dataUrl).subscribe((result) => this.handlePagination(result), error => {
+                this.loading = false;
+                throw error;
+            });
         }
     }
 
@@ -46,5 +51,6 @@ export class LoadingOnDemandComponent implements OnInit {
         }
         this.dataResult = result;
         this.data.emit(this.dataResult.data);
+        this.loading = false;
     }
 }
