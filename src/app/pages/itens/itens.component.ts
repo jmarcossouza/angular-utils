@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Pagination } from 'src/app/utils/loading-on-demand/loading-on-demand.model';
 
 @Component({
     selector: 'uts-itens',
@@ -10,13 +9,8 @@ export class ItensComponent implements OnInit {
 
     constructor() { }
 
-    public urlItens: string = "http://localhost/rota?page={{{page}}}&per_page={{{itensPerPage}}}";
+    public urlItens: string = "http://localhost/url?page={{{page}}}&per_page={{{itensPerPage}}}";
     public itens: any[] = [];
-
-    public handleItens(result: Pagination<any>) {
-        this.itens = this.itens.concat(result);
-        console.log(result, this.itens)
-    }
 
     ngOnInit() {
     }
