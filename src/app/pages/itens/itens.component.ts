@@ -9,7 +9,7 @@ export class ItensComponent implements OnInit {
 
     constructor() { }
 
-    public urlItens: string = "http://localhost/url?page={{{page}}}&per_page={{{itensPerPage}}}";
+    public urlItens: string = "http://api.bomamigo.com:8080/pets_encontrados?page={{{page}}}&per_page={{{itensPerPage}}}";
     public itens: any[] = [];
 
     ngOnInit() {

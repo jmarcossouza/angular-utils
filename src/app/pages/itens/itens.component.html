@@ -5,24 +5,7 @@
 
     </uts-loading-on-demand> -->
 
-    <uts-basic-scroll-to-load>
-        <p>texto</p>
-        <p>texto</p>
-        <p>texto</p>
-        <p>texto</p>
-        <p>texto</p>
-        <p>texto</p>
-        <p>texto</p>
-        <p>texto</p>
-        <p>texto</p>
-        <p>texto</p>
-        <p>texto</p>
-        <p>texto</p>
-        v
-        <p>texto</p>
-        <p>texto</p>
-        <p>texto</p>
-        <p>texto</p>
-        <p>texto</p><p>texto</p><p>texto</p><p>texto</p><p>texto</p><p>texto</p><p>texto</p><p>texto</p><p>texto</p><p>texto</p><p>texto</p><p>texto</p><p>texto</p><p>texto</p><p>texto</p><p>texto</p><p>texto</p><p>texto</p><p>texto</p><p>texto</p><p>texto</p>
-    </uts-basic-scroll-to-load>
+    <uts-scroll-to-load [url]="urlItens" (data)="itens.push($event)">
+        <pre *ngFor="let item of itens">{{item | json}}</pre>
+    </uts-scroll-to-load>
 </div>
