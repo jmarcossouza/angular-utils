@@ -11,6 +11,7 @@ export class FormulariosComponent implements OnInit {
     constructor() { }
 
     public form1: FormGroup;
+    public form2: FormGroup;
     public value: any;
 
     ngOnInit() {
@@ -19,11 +20,18 @@ export class FormulariosComponent implements OnInit {
 
     private createForms(): void {
         this.form1 = new FormGroup({
-            nome: new FormControl(null, [Validators.required, Validators.maxLength(60)]),
-            email: new FormControl(null, [Validators.maxLength(100), Validators.email]),
-            sexo: new FormControl(null, [Validators.required]),
-            concordaTermos: new FormControl(false)
+            nome: new FormControl('', [Validators.required, Validators.maxLength(60)]),
+            email: new FormControl('', [Validators.maxLength(100), Validators.email]),
+            sexo: new FormControl('M', [Validators.required]),
+            concordaTermos: new FormControl(true, Validators.requiredTrue),
         });
+
+        this.form2 = new FormGroup({
+            nome: new FormControl('', [Validators.required, Validators.maxLength(60)]),
+            email: new FormControl('', [Validators.maxLength(100), Validators.email]),
+        });
+
+        console.log('fcontrols', this.form1.controls);
     }
 
 }
