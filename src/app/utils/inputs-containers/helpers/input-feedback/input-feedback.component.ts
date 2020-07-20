@@ -13,14 +13,14 @@ export class InputFeedbackComponent {
      * @description Decide se deve ser mostrada alguma mensagem quando o campo for INVÁLIDO.
      * @default true
      */
-    @Input() showWhenInvalid: boolean = true;
+    @Input() showWhenInvalid = true;
     /**
      * @description Decide se deve ser mostrada alguma mensagem quando o campo for VÁLIDO.
      * @default false
      */
-    @Input() showWhenValid: boolean = false;
+    @Input() showWhenValid = false;
 
-    @Input() validFeedbackMessage: string = "Ok.";
+    @Input() validFeedbackMessage = 'Ok.';
 
     /**
      * @description Método que apresenta as mensagens de erro. Ele é baseado nos booleanos showWhenValid e showWhenInvalid.

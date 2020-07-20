@@ -1,5 +1,5 @@
-<div class="container m-t-100" [formGroup]="form1">
-    <div class="form-row">
+<div class="container m-t-100">
+    <div class="form-row" [formGroup]="form1">
         <uts-input-text-container label="Nome" class="col-lg" [fControl]="form1.controls.nome">
             <input type="text" class="form-control" formControlName="nome" placeholder="Nome">
         </uts-input-text-container>
@@ -10,7 +10,7 @@
         </uts-input-text-container>
     </div>
 
-    <div class="form-row">
+    <div class="form-row" [formGroup]="form1">
         <uts-radio-container [fControl]="form1.controls.sexo" label="Sexo" class="col-lg"
             [shouldApplyValidClass]="true">
             <div class="custom-control custom-radio custom-control-inline">
@@ -30,17 +30,20 @@
         </uts-checkbox-container>
     </div>
 
-    <uts-input-text-container2 [fControl]="form1.controls.nome" label="Nome">
-        <input type="text" class="form-control" formControlName="nome" placeholder="Nome">
-    </uts-input-text-container2>
+    <hr />
+    <ng-container [formGroup]="form2">
+        <uts-input-text-container2 [fControl]="form2.controls.nome" label="Nome">
+            <input type="text" class="form-control" formControlName="nome" placeholder="Nome">
+        </uts-input-text-container2>
 
-    <uts-input-text-container [fControl]="form1.controls.nome" inputParentClass="input-group">
-        <div class="input-group-prepend">
-            <div class="input-group-text">Email</div>
-        </div>
-        <input type="text" class="form-control" formControlName="email" placeholder="Email">
-    </uts-input-text-container>
-    
+        <uts-input-text-container [fControl]="form2.controls.email" inputParentClass="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text">Email</div>
+            </div>
+            <input type="text" class="form-control" formControlName="email" placeholder="Email">
+        </uts-input-text-container>
+    </ng-container>
+
     <button class="btn btn-primary" (click)="value = form1.getRawValue()">Valor Form</button>
 </div>
 
